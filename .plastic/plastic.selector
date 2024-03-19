@@ -1,0 +1,4 @@
+repository "Souls Like Game@unity_14ADF72A0D6B3B78FCCD@cloud"
+  path "/"
+    br "/main"
+    co "/main"
