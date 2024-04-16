@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Main : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class Main : MonoBehaviour
 	private int cameraRotationSpeed = 10;
 	float rotationX = 0f;
 	float rotationY = 0f;
+	*/
 
 	// Start is called before the first frame update
+	/*
 	private void Start()
     {
         camera = GetComponent<Camera>();
@@ -23,6 +26,7 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+		/*
 		Vector3 movement = Vector3.zero;
 
 		// setting input vector for keyboard input
@@ -62,6 +66,12 @@ public class Main : MonoBehaviour
 		//rotationY += Input.GetAxis("Mouse X") * cameraRotationSpeed;
 		//rotationX += Input.GetAxis("Mouse Y") * cameraRotationSpeed * -1;
 		//camera.transform.localEulerAngles = new Vector3(rotationX, rotationY, 0);
+
 	}
+
+	    public static Main GetInstance()
+    {
+        return instance == null ? instance = new Main() : instance;
+    }
 	*/
 }
