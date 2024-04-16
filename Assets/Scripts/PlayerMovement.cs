@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform cameraTransform;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
         }
 	}
 
+    /** 
+     
     private void OnApplicationFocus(bool focus)
     {
         if (focus)
@@ -76,4 +77,5 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = true;
         }
     }
+     */
 }
