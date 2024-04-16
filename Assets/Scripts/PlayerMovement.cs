@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private static PlayerMovement instance;
-    private bool isStarted = false;
     [SerializeField]
     public float maximumSpeed = 3;
 
@@ -15,11 +13,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     [SerializeField]
     private Transform cameraTransform;
-
-    void Awake()
-    {
-        instance = this;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +24,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if (this.isStarted)
-     {
-
         // movement
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -70,10 +60,10 @@ public class PlayerMovement : MonoBehaviour
         {
             //animator.SetBool("isMoving", false);
         }
-     }
 	}
 
-    /*
+    /** 
+     
     private void OnApplicationFocus(bool focus)
     {
         if (focus)
@@ -87,13 +77,5 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = true;
         }
     }
-    */
-    public void SetIsStarted(bool isStarted)
-    {
-        this.isStarted = isStarted;
-    }
-    public static PlayerMovement GetInstance()
-    {
-        return instance == null ? instance = new PlayerMovement() : instance;
-    }
+     */
 }

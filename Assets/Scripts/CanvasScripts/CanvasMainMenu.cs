@@ -26,7 +26,7 @@ public class CanvasMainMenu : MonoBehaviour
     public void B_OnHandlePlayButton()
     {
         CanvasPlay.gameObject.SetActive(false);
-        PlayerMovement.GetInstance().SetIsStarted(true);
+        PauseController.GetInstance().SetIsPaused(false);
         //FreeLookCamController.GetInstance().SetStartCam(true);
     }
     public static CanvasMainMenu GetInstance()
