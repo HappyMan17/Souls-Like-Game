@@ -4,84 +4,87 @@ using UnityEngine;
 using UnityEngine.AI;
 public class testNpc : MonoBehaviour
 {
-    public NavMeshAgent enemy;
+    /*
+    
+        public NavMeshAgent enemy;
 
-    public Transform player;
+        public Transform player;
 
-    public LayerMask whatIsGround, whatIsPlayer;
+        public LayerMask whatIsGround, whatIsPlayer;
 
-    //Patroling 
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
+        //Patroling 
+        public Vector3 walkPoint;
+        bool walkPointSet;
+        public float walkPointRange;
 
-    //States
+        //States
 
-    public float sightRange;
-    public bool playerInSightRange;
+        public float sightRange;
+        public bool playerInSightRange;
 
-    private void Awake()
-    {
-        player = GameObject.Find("PaladinPlayer").transform;
-        enemy = GetComponent<NavMeshAgent>();
+        private void Awake()
+        {
+            player = GameObject.Find("PaladinPlayer").transform;
+            enemy = GetComponent<NavMeshAgent>();
         
-    }
-    // Start is called before the first frame update
+        }
+        // Start is called before the first frame update
 
-    void Start()
-    {
+        void Start()
+        {
         
-    }
+        }
   
-    // Update is called once per frame
-    void Update()
-    {
-        //Check for Sight
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-
-        if(!playerInSightRange)
+        // Update is called once per frame
+        void Update()
         {
-            Patroling();
-        }
-        if(playerInSightRange){
-            ChasePlayer();
-        }
-    }
+            //Check for Sight
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
-    private void Patroling()
-    {
-        if(!walkPointSet)
+            if(!playerInSightRange)
+            {
+                Patroling();
+            }
+            if(playerInSightRange){
+                ChasePlayer();
+            }
+        }
+
+        private void Patroling()
         {
-            SearchWalkPoint();
+            if(!walkPointSet)
+            {
+                SearchWalkPoint();
+            }
+            if(walkPointSet)
+            {
+                enemy.SetDestination(walkPoint);
+            }
+
+            Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+            //Walkpoint reached
+
+            if(distanceToWalkPoint.magnitude < 1f)
+            {
+                walkPointSet = false;
+            }
         }
-        if(walkPointSet)
+        private void SearchWalkPoint()
         {
-            enemy.SetDestination(walkPoint);
+            float randomZ = Random.Range(-walkPointRange, walkPointRange);
+            float randomX = Random.Range(-walkPointRange, walkPointRange);
+
+            walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+            if(Physics.Raycast(walkPoint, - transform.up, 2f, whatIsGround))
+            {
+                walkPointSet = true;
+            }
         }
 
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-
-        if(distanceToWalkPoint.magnitude < 1f)
+        private void ChasePlayer()
         {
-            walkPointSet = false;
+            enemy.SetDestination(player.position);
         }
-    }
-    private void SearchWalkPoint()
-    {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        if(Physics.Raycast(walkPoint, - transform.up, 2f, whatIsGround))
-        {
-            walkPointSet = true;
-        }
-    }
-
-    private void ChasePlayer()
-    {
-        enemy.SetDestination(player.position);
-    }
+    */
 }
