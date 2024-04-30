@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         // animation
         animator.SetFloat("Input Magnitud", inputMagnitud, 0.05f, Time.deltaTime);
         CheckAttack(animator);
+        CheckUsingShield(animator);
 
         float speed = inputMagnitud * maximumSpeed;
 
@@ -78,12 +79,24 @@ public class PlayerMovement : MonoBehaviour
         {
             // Debug.Log("left click");
             animator.SetBool("attack", true);
-            // Debug.Log("Bool " + animator.GetBool("attack"));
         }
         else
         {
             animator.SetBool("attack", false);
         }
+    }
+    
+    private void CheckUsingShield(Animator animator)
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            animator.SetBool("usingShield", true);
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            animator.SetBool("usingShield", false);
+        }
+        Debug.Log("using shield" + animator.GetBool("usingShield"));
     }
 
     /** 
