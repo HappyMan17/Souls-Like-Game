@@ -96,7 +96,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("usingShield", false);
         }
-        Debug.Log("using shield" + animator.GetBool("usingShield"));
     }
 
     /** 
