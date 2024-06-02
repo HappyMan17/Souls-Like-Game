@@ -60,11 +60,16 @@
     <Analyzer Include="G:\Unity\2022.3.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Health\HealthBarUI.cs" />
+    <Compile Include="Assets\Scripts\testNpc.cs" />
     <Compile Include="Assets\Scripts\StateMachine\SetBooleanBehaviour.cs" />
     <Compile Include="Assets\Scripts\Key.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\PauseController.cs" />
     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
+    <Compile Include="Assets\Scripts\Health\HealthController.cs" />
+    <Compile Include="Assets\Scripts\CanvasScripts\CanvasGame.cs" />
+    <Compile Include="Assets\Scripts\Health\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\CanvasScripts\CanvasGame.cs" />
     <Compile Include="Assets\Scripts\EnemyAITest.cs" />
