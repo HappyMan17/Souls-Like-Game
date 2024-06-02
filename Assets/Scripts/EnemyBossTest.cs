@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-public class EnemyAITest : MonoBehaviour
+
+public class EnemyBossTest : MonoBehaviour
 {
-    public int routine;
+   public int routine;
     public float chronometer;
     public Animator enemyAni;
     public Quaternion angle;
@@ -12,9 +12,9 @@ public class EnemyAITest : MonoBehaviour
 
     public bool attacking;
     public GameObject target;
-    [SerializeField]
-    private float speed;
-    public NavMeshAgent agent;
+
+    public float speed;
+    public UnityEngine.AI.NavMeshAgent agent;
     public float rangeAttack;
     public float degreeVision;
 
@@ -98,4 +98,5 @@ public class EnemyAITest : MonoBehaviour
         enemyAni.SetBool("attack", false);
         attacking = false;
     }
+
 }
