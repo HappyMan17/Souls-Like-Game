@@ -21,7 +21,7 @@ public class EnemyAITest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("Player");
+        target = GameObject.Find("PaladinPlayer");
     }
 
     // Update is called once per frame
