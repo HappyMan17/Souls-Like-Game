@@ -400,7 +400,7 @@ AnimatorStateMachine:
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
-  m_ParentStateMachinePosition: {x: 40, y: 60, z: 0}
+  m_ParentStateMachinePosition: {x: 260, y: 20, z: 0}
   m_DefaultState: {fileID: 6275215378622834112}
 --- !u!206 &3900717538808428515
 BlendTree:
@@ -462,7 +462,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 374dd180a8f098a46b8b8bda9207711b, type: 3}
+  m_Motion: {fileID: 7400000, guid: 7629ce22abcaa7c49a084b48f68b0f75, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
