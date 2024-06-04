@@ -28,7 +28,7 @@ public class EnemyAITest : MonoBehaviour
     void Update()
     {
         Behavior_enemy();
-        Debug.Log(Vector3.Distance(transform.position, target.transform.position));
+        //Debug.Log(Vector3.Distance(transform.position, target.transform.position));
     }
 
     void Behavior_enemy()

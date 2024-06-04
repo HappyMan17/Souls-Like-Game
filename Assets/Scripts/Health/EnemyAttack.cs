@@ -13,7 +13,7 @@ public class EnemyAttack : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerMovement>())
         {
             var healthController = collision.gameObject.GetComponent<HealthController>();
-        
+            Debug.Log("" + _damageAmount);
             healthController.TakeDamage(_damageAmount);
         }
     }
