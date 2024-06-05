@@ -1286,6 +1286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton1
       objectReference: {fileID: 0}
+    - target: {fileID: 3798804956846467991, guid: e8271dd4d19edab4ea37d073195ce0ec, type: 3}
+      propertyPath: healthController
+      value: 
+      objectReference: {fileID: 1398378988}
     - target: {fileID: 7318444585857943989, guid: e8271dd4d19edab4ea37d073195ce0ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7113001
@@ -2350,8 +2354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 10
   healthController: {fileID: 0}
-  targetName: 
-  animator: {fileID: 0}
 --- !u!136 &944952335
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3807,6 +3809,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
   m_PrefabInstance: {fileID: 1353872315}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1398378988 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5118764086899853222, guid: 5ecd930dc26750549aad5b7a9cada71e, type: 3}
+  m_PrefabInstance: {fileID: 3685222581972450438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a1ab32f8c2d54499c4eb5ca3f4902f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1436226059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8378305016021551963, guid: e7a79a14190d3d34f93236ba7164d734, type: 3}
@@ -3882,7 +3895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449538819}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.059786584, y: -0.03224259, z: 0.0019321407, w: 0.9976885}
+  m_LocalRotation: {x: 0.059786584, y: -0.032242596, z: 0.0019321411, w: 0.9976885}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

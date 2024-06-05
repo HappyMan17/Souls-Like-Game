@@ -96,8 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 10
   healthController: {fileID: 0}
-  targetName: PaladinPlayer
-  animator: {fileID: 4178273598338159918}
 --- !u!1 &2696098732460778888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1079,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.04
+  m_Radius: 0.025
   m_Height: 0.18
   m_Direction: 1
   m_Center: {x: 0, y: 0.09, z: 0}
