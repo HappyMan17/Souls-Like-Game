@@ -51,7 +51,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.8, y: 0.2, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 10
+  healthController: {fileID: 0}
+  targetName: PaladinPlayer
+  animator: {fileID: 4178273598338159918}
 --- !u!1 &2696098732460778888
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +318,7 @@ GameObject:
   - component: {fileID: 604233111929114776}
   - component: {fileID: 864619007673730592}
   - component: {fileID: 1141832467386240871}
+  - component: {fileID: 2891996903827276957}
   m_Layer: 5
   m_Name: HealthBarSkeleton
   m_TagString: Untagged
@@ -380,6 +384,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2891996903827276957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629641067801306777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f900242ad17184a92d03a74bf2d3bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBarForegroundImage: {fileID: 2545730483224218016}
 --- !u!1001 &4178273598345453646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -390,7 +407,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100078, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0, type: 3}
       propertyPath: m_Name
-      value: Skeleton@Skin
+      value: Skeleton
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1028,7 +1045,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 100
   m_Drag: 100
-  m_AngularDrag: 0.05
+  m_AngularDrag: 100
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1080,11 +1097,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a1ab32f8c2d54499c4eb5ca3f4902f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maximumHealth: 0
+  _currentHealth: 100
+  _maximumHealth: 100
   OnDied:
     m_PersistentCalls:
       m_Calls: []
   OnHealthChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2891996903827276957}
+        m_TargetAssemblyTypeName: HealthBarUI, Assembly-CSharp
+        m_MethodName: UpateHealthBar
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2291553703149187582}
+          m_ObjectArgumentAssemblyTypeName: HealthController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
