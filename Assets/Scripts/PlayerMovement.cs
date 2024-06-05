@@ -14,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform cameraTransform;
 
+    public bool CanMove { get
+        {
+            return animator.GetBool("canMove");
+        } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +43,9 @@ public class PlayerMovement : MonoBehaviour
 
         // animation
         animator.SetFloat("Input Magnitud", inputMagnitud, 0.05f, Time.deltaTime);
-        
+        CheckAttack(animator);
+        CheckUsingShield(animator);
+
         float speed = inputMagnitud * maximumSpeed;
 
         // moving player with camera
@@ -46,21 +53,50 @@ public class PlayerMovement : MonoBehaviour
 		
         movementDirection.Normalize();
 
-        characterController.SimpleMove(movementDirection * speed);
-
-        // rotation if it is moving
-        if (movementDirection != Vector3.zero)
+        // movement looked
+        if (CanMove)
         {
-            // set animation to true
-            //animator.SetBool("isMoving", true);
+            characterController.SimpleMove(movementDirection * speed);
+            // rotation if it is moving
+            if (movementDirection != Vector3.zero)
+            {
+                // set animation to true
+                //animator.SetBool("isMoving", true);
 
-            transform.forward = Vector3.Slerp(transform.forward, movementDirection, Time.deltaTime * rotationSpeed);
+                transform.forward = Vector3.Slerp(transform.forward, movementDirection, Time.deltaTime * rotationSpeed);
+            }
+            else 
+            {
+                //animator.SetBool("isMoving", false);
+            }
         }
-        else 
-        {
-            //animator.SetBool("isMoving", false);
-        }
+
 	}
+
+    private void CheckAttack(Animator animator)
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Debug.Log("left click");
+            animator.SetBool("attack", true);
+        }
+        else
+        {
+            animator.SetBool("attack", false);
+        }
+    }
+    
+    private void CheckUsingShield(Animator animator)
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            animator.SetBool("usingShield", true);
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            animator.SetBool("usingShield", false);
+        }
+    }
 
     /** 
      
