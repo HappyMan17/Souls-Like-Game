@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Health\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\StateMachine\SetBooleanBehaviour.cs" />
     <Compile Include="Assets\Scripts\Key.cs" />
+    <Compile Include="Assets\Scripts\ChangeScreen\OnTriggerChangeScreen.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\PauseController.cs" />
     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
