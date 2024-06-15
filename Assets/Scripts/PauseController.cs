@@ -11,6 +11,7 @@ public class PauseController : MonoBehaviour
     public UnityEvent GamePaused;
     public UnityEvent GameResumed;
 
+    [SerializeField]
     private bool _isPaused = true;
 
     void Awake()
@@ -24,6 +25,12 @@ public class PauseController : MonoBehaviour
         // to begin in pause until the player click on play
         Time.timeScale = 0;
         GamePaused?.Invoke();
+        if (!_isPaused)
+        {
+            Pause();
+        }
+        /*
+         */
     }
 
     // Update is called once per frame
