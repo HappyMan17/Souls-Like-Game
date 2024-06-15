@@ -15,7 +15,7 @@ public class TriggerDoorController : MonoBehaviour
     {
         if (other.name == "PaladinPlayer")
         {
-            if (openTrigger || playerInventory.KeysCollected > 1)
+            if (openTrigger && playerInventory.KeysCollected >= 1)
             {
                 myDoor.Play("DoorOpen", 0, 0.0f);
                 gameObject.SetActive(false);
