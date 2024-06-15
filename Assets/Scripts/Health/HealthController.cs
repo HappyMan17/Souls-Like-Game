@@ -11,6 +11,9 @@ public class HealthController : MonoBehaviour
     [SerializeField]
     private float _maximumHealth;
 
+    [SerializeField]
+    private Animator playerAnimator;
+
     public float RemainingHealthPercentage
     {
         get
@@ -29,10 +32,13 @@ public class HealthController : MonoBehaviour
             return;
         }
         
-        // health Change event
-        OnHealthChange.Invoke();
+        if (playerAnimator && !playerAnimator.GetBool("usingShield"))
+        {
+            // health Change event
+            OnHealthChange.Invoke();
         
-        _currentHealth -= damageAmount;
+            _currentHealth -= damageAmount;
+        }
 
         if ( _currentHealth < 0 )
         {
