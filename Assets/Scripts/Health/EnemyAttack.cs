@@ -27,7 +27,6 @@ public class EnemyAttack : MonoBehaviour
         }
         
         var healthController = other.GetComponent<HealthController>();
-        Debug.Log("hola");
         
         if (healthController != null)
         {
