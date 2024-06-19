@@ -11,11 +11,13 @@ public class EnemyAITest : MonoBehaviour
     public float degree;
 
     public bool attacking;
+    public bool isPatrolling = true;
     public GameObject target;
     [SerializeField]
     private float speed;
     public NavMeshAgent agent;
-    public float rangeAttack;
+    public float rangeToDetectPlayer = 5;
+    public float rangeToAttack = 1.6f;
     public float degreeVision;
 
     // Start is called before the first frame update
@@ -33,9 +35,14 @@ public class EnemyAITest : MonoBehaviour
 
     void Behavior_enemy()
     {
-        if(Vector3.Distance(transform.position,target.transform.position) >5)
-        {   
-            
+        if(Vector3.Distance(transform.position,target.transform.position) > rangeToDetectPlayer)
+        {
+            if (!isPatrolling)
+            {
+                return;
+            }
+
+            // if the player is not in range to attack patrol
             enemyAni.SetBool("run",false);
             chronometer += 1 * Time.deltaTime;
             if(chronometer >= 4)
@@ -62,7 +69,8 @@ public class EnemyAITest : MonoBehaviour
         }
         else
         {
-            if(Vector3.Distance(transform.position, target.transform.position) >1.6f && !attacking)
+            // if player is in range, get closer
+            if(Vector3.Distance(transform.position, target.transform.position) > rangeToAttack && !attacking)
             {
                 var lookPos = target.transform.position - transform.position;
                 lookPos.y = 0;
@@ -78,7 +86,8 @@ public class EnemyAITest : MonoBehaviour
             } 
             else
             {
-                if(Vector3.Distance(transform.position, target.transform.position) <=1.6f )
+                // if player is in range, attack
+                if (Vector3.Distance(transform.position, target.transform.position) <= rangeToAttack)
                 {
                     enemyAni.SetBool("walk",false);
                     enemyAni.SetBool("run", false);
