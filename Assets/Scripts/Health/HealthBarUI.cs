@@ -16,6 +16,5 @@ public class HealthBarUI : MonoBehaviour
         {
           _healthBarForegroundImage.fillAmount = 0  ;
         }
-        Debug.Log(_healthBarForegroundImage.fillAmount);
     }
 }
