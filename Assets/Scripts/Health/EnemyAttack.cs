@@ -6,6 +6,8 @@ public class EnemyAttack : MonoBehaviour
 {
     [SerializeField]
     private float _damageAmount;
+    [SerializeField]
+    private bool isTrigger = false;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -17,4 +19,19 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!isTrigger)
+        {
+            return;
+        }
+        
+        var healthController = other.GetComponent<HealthController>();
+        Debug.Log("hola");
+        
+        if (healthController != null)
+        {
+            healthController.TakeDamage(_damageAmount);
+        }
+    }
 }
