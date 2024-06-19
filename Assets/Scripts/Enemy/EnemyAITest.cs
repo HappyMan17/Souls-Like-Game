@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyAITest : MonoBehaviour
 {
+    
     public int routine;
     public float chronometer;
     public Animator enemyAni;
@@ -12,6 +13,9 @@ public class EnemyAITest : MonoBehaviour
 
     public bool attacking;
     public bool isPatrolling = true;
+    [SerializeField]
+    private UnityEngine.UI.Image _MyHealth;
+
     public GameObject target;
     [SerializeField]
     private float speed;
@@ -30,77 +34,87 @@ public class EnemyAITest : MonoBehaviour
     void Update()
     {
         Behavior_enemy();
-        //Debug.Log(Vector3.Distance(transform.position, target.transform.position));
+        //Debug.Log(_MyHealth.fillAmount);
     }
 
     void Behavior_enemy()
     {
-        if(Vector3.Distance(transform.position,target.transform.position) > rangeToDetectPlayer)
+        if(_MyHealth.fillAmount >= 0.1f)
         {
-            if (!isPatrolling)
-            {
-                return;
-            }
+            if(Vector3.Distance(transform.position,target.transform.position) > rangeToDetectPlayer)
+            {   
+                if (!isPatrolling)
+                {
+                    return;
+                }
 
-            // if the player is not in range to attack patrol
-            enemyAni.SetBool("run",false);
-            chronometer += 1 * Time.deltaTime;
-            if(chronometer >= 4)
-            {
-                routine = Random.Range(0,2);
-                chronometer = 0;
+                // if the player is not in range to attack patrol
+                enemyAni.SetBool("run",false);
+                chronometer += 1 * Time.deltaTime;
+                if(chronometer >= 4)
+                {
+                    routine = Random.Range(0,2);
+                    chronometer = 0;
+                }
+                switch (routine)
+                {
+                    case 0:
+                        enemyAni.SetBool("walk",false);
+                        break;
+                    case 1:
+                        degree = Random.Range(0,360);
+                        angle = Quaternion.Euler(0,degree,0);
+                        routine ++;
+                        break;
+                    case 2:
+                        transform.rotation = Quaternion.RotateTowards(transform.rotation, angle, 0.5f);
+                        transform.Translate(Vector3.forward * 1 * Time.deltaTime);
+                        enemyAni.SetBool("walk",true);
+                        break;
+                }
             }
-            switch (routine)
+            else
             {
-                case 0:
+                // if the player is in range to attack
+                if(Vector3.Distance(transform.position, target.transform.position) > rangeToAttack && !attacking)
+                {
+                    var lookPos = target.transform.position - transform.position;
+                    lookPos.y = 0;
+                    var rotation = Quaternion.LookRotation(lookPos);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation,rotation,3);
+                    
                     enemyAni.SetBool("walk",false);
-                    break;
-                case 1:
-                    degree = Random.Range(0,360);
-                    angle = Quaternion.Euler(0,degree,0);
-                    routine ++;
-                    break;
-                case 2:
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, angle, 0.5f);
-                    transform.Translate(Vector3.forward * 1 * Time.deltaTime);
-                    enemyAni.SetBool("walk",true);
-                    break;
+                    enemyAni.SetBool("run",true);
+                    
+                    transform.Translate(Vector3.forward * 2 * Time.deltaTime);
+                    
+                    enemyAni.SetBool("attack",false);
+                } 
+                else
+                {
+                    // if the player is in range to attack
+                    if(Vector3.Distance(transform.position, target.transform.position) <= rangeToAttack )
+                    {
+                        enemyAni.SetBool("walk",false);
+                        enemyAni.SetBool("run", false);
+
+                        enemyAni.SetBool("attack", true);
+                        attacking = true;
+                    }
+                    else
+                    {
+                        EndAttack(); 
+                    }
+                }   
             }
         }
         else
         {
-            // if player is in range, get closer
-            if(Vector3.Distance(transform.position, target.transform.position) > rangeToAttack && !attacking)
-            {
-                var lookPos = target.transform.position - transform.position;
-                lookPos.y = 0;
-                var rotation = Quaternion.LookRotation(lookPos);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation,rotation,3);
-                
-                enemyAni.SetBool("walk",false);
-                enemyAni.SetBool("run",true);
-                
-                transform.Translate(Vector3.forward * 2 * Time.deltaTime);
-                
-                enemyAni.SetBool("attack",false);
-            } 
-            else
-            {
-                // if player is in range, attack
-                if (Vector3.Distance(transform.position, target.transform.position) <= rangeToAttack)
-                {
-                    enemyAni.SetBool("walk",false);
-                    enemyAni.SetBool("run", false);
-
-                    enemyAni.SetBool("attack", true);
-                    attacking = true;
-                }
-                else
-                {
-                   EndAttack(); 
-                }
-            }   
-        }    
+            enemyAni.SetBool("walk",false);
+            enemyAni.SetBool("run",false);
+            enemyAni.SetBool("attack",false);
+            enemyAni.SetBool("dead",true);
+        }   
     }
     void EndAttack()
     {
