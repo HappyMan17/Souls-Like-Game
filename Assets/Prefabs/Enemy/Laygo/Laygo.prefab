@@ -407,6 +407,7 @@ MonoBehaviour:
   degree: 0
   attacking: 0
   isPatrolling: 0
+  _MyHealth: {fileID: 2873168205268390845}
   target: {fileID: 0}
   speed: 0
   agent: {fileID: 0}
@@ -475,8 +476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a1ab32f8c2d54499c4eb5ca3f4902f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 120
-  _maximumHealth: 120
+  _currentHealth: 20
+  _maximumHealth: 20
   playerAnimator: {fileID: 0}
   OnDied:
     m_PersistentCalls:

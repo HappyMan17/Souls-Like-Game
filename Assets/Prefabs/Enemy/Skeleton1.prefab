@@ -2046,8 +2046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a1ab32f8c2d54499c4eb5ca3f4902f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 100
-  _maximumHealth: 100
+  _currentHealth: 30
+  _maximumHealth: 30
   playerAnimator: {fileID: 0}
   OnDied:
     m_PersistentCalls:

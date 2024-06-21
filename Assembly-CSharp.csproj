@@ -64,7 +64,6 @@
     <Compile Include="Assets\Scripts\Health\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\StateMachine\SetBooleanBehaviour.cs" />
     <Compile Include="Assets\Scripts\Key.cs" />
-    <Compile Include="Assets\Scripts\ChangeScreen\OnTriggerChangeScreen.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\PauseController.cs" />
     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
@@ -73,6 +72,7 @@
     <Compile Include="Assets\Scripts\CanvasScripts\CanvasGame.cs" />
     <Compile Include="Assets\Scripts\Animations\Door\TriggerDoorController.cs" />
     <Compile Include="Assets\Scripts\Health\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\ChangeScreen\ChangeScreen.cs" />
     <Compile Include="Assets\Scripts\SecodLevelScripts\CountKillFirstDoor.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAITest.cs" />
     <Compile Include="Assets\Scripts\InventoryUI.cs" />
