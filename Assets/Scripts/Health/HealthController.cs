@@ -31,37 +31,39 @@ public class HealthController : MonoBehaviour
         {
             return;
         }
-        
+
+        if (_currentHealth - damageAmount <= 0)
+        {
+            OnDied.Invoke();
+        }
+
         if (playerAnimator && !playerAnimator.GetBool("usingShield"))
         {
-            // health Change event
-            OnHealthChange.Invoke();
-        
             _currentHealth -= damageAmount;
+
+            // health Change event
+            OnHealthChange.Invoke();        
         }
 
         if ( _currentHealth < 0 )
         {
             _currentHealth = 0;    
         }
-
-        if ( _currentHealth > 0 )
-        {
-            OnDied.Invoke();
-        }
+        
     }
 
     public void AddHealth( float amountToAdd )
     {
+        Debug.Log("Health: " + amountToAdd);
         if (_currentHealth == _maximumHealth)
         {
             return;
         }
 
+        _currentHealth += amountToAdd;
+
         // health Change event
         OnHealthChange.Invoke();
-
-        _currentHealth += amountToAdd;
 
         if ( _currentHealth > _maximumHealth ) 
         { 

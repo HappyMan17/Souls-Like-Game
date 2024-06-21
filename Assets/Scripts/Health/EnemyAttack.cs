@@ -8,10 +8,12 @@ public class EnemyAttack : MonoBehaviour
     private float _damageAmount;
     [SerializeField]
     private bool isTrigger = false;
+    [SerializeField]
+    private string currentModel;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<HealthController>())
+        if (collision.gameObject.GetComponent<HealthController>() && currentModel != collision.gameObject.name)
         {
             var healthController2 = collision.gameObject.GetComponent<HealthController>();
             // Debug.Log("" + _damageAmount);
@@ -28,7 +30,7 @@ public class EnemyAttack : MonoBehaviour
         
         var healthController = other.GetComponent<HealthController>();
         
-        if (healthController != null)
+        if (healthController != null && currentModel != other.name)
         {
             healthController.TakeDamage(_damageAmount);
         }

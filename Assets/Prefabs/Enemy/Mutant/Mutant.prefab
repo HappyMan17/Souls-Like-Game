@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 10
   isTrigger: 1
+  currentModel: Mutant
 --- !u!54 &701830980557937865
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -906,12 +907,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a1ab32f8c2d54499c4eb5ca3f4902f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 150
-  _maximumHealth: 150
+  _currentHealth: 30
+  _maximumHealth: 30
   playerAnimator: {fileID: 0}
   OnDied:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: OnChangeScreen, Assembly-CSharp
+        m_MethodName: ChangeScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHealthChange:
     m_PersistentCalls:
       m_Calls:
@@ -946,6 +959,7 @@ MonoBehaviour:
   degree: 0
   attacking: 0
   isPatrolling: 0
+  _MyHealth: {fileID: 6371689462063328585}
   target: {fileID: 0}
   speed: 0
   agent: {fileID: 0}

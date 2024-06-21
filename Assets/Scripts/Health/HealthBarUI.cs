@@ -8,6 +8,13 @@ public class HealthBarUI : MonoBehaviour
     private UnityEngine.UI.Image _healthBarForegroundImage;
     public void UpateHealthBar(HealthController healthController)
     {
-        _healthBarForegroundImage.fillAmount = healthController.RemainingHealthPercentage;
+        if (healthController.RemainingHealthPercentage > 0.1f)
+        {
+            _healthBarForegroundImage.fillAmount = healthController.RemainingHealthPercentage;       
+        }
+        else
+        {
+            _healthBarForegroundImage.fillAmount = 0;
+        }
     }
 }
