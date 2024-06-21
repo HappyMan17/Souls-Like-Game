@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 10
+  isTrigger: 0
+  currentModel: PaladinPlayer
 --- !u!1 &6410365043315268658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,6 +1404,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _isPaused: 1
 --- !u!114 &1002197525152286041
 MonoBehaviour:
   m_ObjectHideFlags: 0
