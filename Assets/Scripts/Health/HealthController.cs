@@ -54,15 +54,16 @@ public class HealthController : MonoBehaviour
 
     public void AddHealth( float amountToAdd )
     {
+        Debug.Log("Health: " + amountToAdd);
         if (_currentHealth == _maximumHealth)
         {
             return;
         }
 
+        _currentHealth += amountToAdd;
+
         // health Change event
         OnHealthChange.Invoke();
-
-        _currentHealth += amountToAdd;
 
         if ( _currentHealth > _maximumHealth ) 
         { 

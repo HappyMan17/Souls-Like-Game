@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\PauseController.cs" />
     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Health\HealthController.cs" />
+    <Compile Include="Assets\Scripts\Health\PotionHealth.cs" />
     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\CanvasScripts\CanvasGame.cs" />
     <Compile Include="Assets\Scripts\Animations\Door\TriggerDoorController.cs" />
