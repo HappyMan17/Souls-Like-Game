@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 10
   isTrigger: 0
+  currentModel: Skeleton
 --- !u!1 &2696098732460778888
 GameObject:
   m_ObjectHideFlags: 0

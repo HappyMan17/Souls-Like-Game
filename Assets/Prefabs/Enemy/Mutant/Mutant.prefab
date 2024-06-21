@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 10
   isTrigger: 1
+  currentModel: Mutant
 --- !u!54 &701830980557937865
 Rigidbody:
   m_ObjectHideFlags: 0
