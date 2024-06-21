@@ -9494,7 +9494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877110658}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08710837, y: -0.032707293, z: 0.0028615047, w: 0.9956577}
+  m_LocalRotation: {x: 0.08710837, y: -0.0327073, z: 0.0028615058, w: 0.9956577}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9755,10 +9755,6 @@ PrefabInstance:
       propertyPath: OnHealthChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 549246887}
-    - target: {fileID: 6733313109205777468, guid: 5ecd930dc26750549aad5b7a9cada71e, type: 3}
-      propertyPath: currentModel
-      value: PaladinPlayer
-      objectReference: {fileID: 0}
     - target: {fileID: 8583865776390349101, guid: 5ecd930dc26750549aad5b7a9cada71e, type: 3}
       propertyPath: cameraTransform
       value: 
