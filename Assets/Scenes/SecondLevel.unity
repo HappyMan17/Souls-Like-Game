@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2147,6 +2147,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 5118764086899853222, guid: 5ecd930dc26750549aad5b7a9cada71e, type: 3}
+      propertyPath: OnHealthChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342536136}
     - target: {fileID: 8583865776390349101, guid: 5ecd930dc26750549aad5b7a9cada71e, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -4212,7 +4216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074752617}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08621684, y: -0.082574, z: 0.0071707354, w: 0.9928227}
+  m_LocalRotation: {x: 0.08621682, y: -0.08257401, z: 0.0071707354, w: 0.9928227}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7817,7 +7821,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009486523}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.059611943, y: -0.08273639, z: 0.0049579833, w: 0.99477464}
+  m_LocalRotation: {x: 0.059611943, y: -0.08273634, z: 0.0049579814, w: 0.99477464}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
