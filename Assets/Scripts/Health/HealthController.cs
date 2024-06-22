@@ -32,7 +32,7 @@ public class HealthController : MonoBehaviour
             return;
         }
 
-        if (_currentHealth - damageAmount <= 0)
+        if ((_currentHealth - damageAmount) <= 0)
         {
             OnDied.Invoke();
         }
@@ -54,7 +54,6 @@ public class HealthController : MonoBehaviour
 
     public void AddHealth( float amountToAdd )
     {
-        Debug.Log("Health: " + amountToAdd);
         if (_currentHealth == _maximumHealth)
         {
             return;

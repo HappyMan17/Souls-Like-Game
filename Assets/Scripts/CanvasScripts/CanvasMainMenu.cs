@@ -23,6 +23,7 @@ public class CanvasMainMenu : MonoBehaviour
     {
         
     }
+
     public void B_OnHandlePlayButton()
     {
         CanvasPlay.gameObject.SetActive(false);
